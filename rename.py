@@ -2,12 +2,13 @@ import os
 
 import sys
 
+dir = sys.argv[1]
 
-old_extension = 'hid2'
+from_ext = sys.argv[2]
+to_ext = sys.argv[3]
 
-
-for filename in os.listdir(sys.argv[1]):
-  if filename.endswith(old_extension):
+for filename in os.listdir(dir):
+  if filename.endswith(from_ext):
     parts = filename.split('.')
 
     length = len(parts)
@@ -17,6 +18,8 @@ for filename in os.listdir(sys.argv[1]):
     for i in range(0, length - 1):
       new_parts.append(parts[i])
 
+
+    new_parts.append(to_ext)
 
     new_name = '.'.join(new_parts)
 
