@@ -2,6 +2,10 @@ import os
 
 import sys
 
+
+
+
+
 dir = sys.argv[1]
 
 from_ext = sys.argv[2]
@@ -24,9 +28,12 @@ for filename in os.listdir(dir):
     new_name = '.'.join(new_parts)
 
 
-    print "{0} - {1}".format(filename, new_name)
 
-    os.rename(filename, new_name)
+    if to_ext == "test":
+        print "{0}".format(filename)
+    else:
+        print "{0} - {1}".format(filename, new_name)
 
+        os.rename(filename, new_name)
    
 
